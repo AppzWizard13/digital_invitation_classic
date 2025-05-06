@@ -35,6 +35,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico' %}">
@@ -93,34 +94,50 @@
 			</div>
 		</div>
 
-		<div class="video-container" style="position: relative; height: 100vh; overflow: hidden;">
-			<video id="weddingVideo" class="w-100 h-100" style="object-fit: cover; filter: saturate(1.4);" playsinline>
-			  <source src="{% static 'videos/wedding_intro.mp4' %}" type="video/mp4">
-			  Your browser does not support the video tag.
+		<div class="video-container" style="position: relative; width: 100%;  overflow: hidden;">
+			<video id="weddingVideo" class="w-100 " style="object-fit: fit; width: 100%; filter: saturate(1.4);" playsinline>
+				<source src="{% static 'videos/wedding_intro.mp4' %}" type="video/mp4">
+				Your browser does not support the video tag.
 			</video>
-		  
-			<!-- Overlay Caption -->
-			<div class="carousel-caption d-none d-md-block" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff;">
-			  <h1 style="font-size: 3rem;">The Wedding</h1>
-			  <h2 class="floating-text" style="font-size: 2rem;">Akshay Chandh &amp; Nisha</h2>
-			  <p style="font-size: 1.5rem;"><span>11.05.2025</span></p>
-			</div>
-		  
+		
 			<!-- Play Button Overlay -->
 			<button id="playBtn" style="position: absolute; top: 80%; left: 50%; transform: translateX(-50%); z-index: 10; font-size: 1.2rem; padding: 10px 20px; border: none; background-color: #fff; color: #000; border-radius: 5px; cursor: pointer;">
-			  ▶️ Play Video with Sound
+				▶️ Play Video with Sound
 			</button>
-		  </div>
-		  
-		  <script>
-			const playBtn = document.getElementById('playBtn');
-			const video = document.getElementById('weddingVideo');
-		  
-			playBtn.addEventListener('click', () => {
-			  video.play();
-			  playBtn.style.display = 'none';
+		</div>
+		
+		<script>
+		const playBtn = document.getElementById('playBtn');
+		const video = document.getElementById('weddingVideo');
+		
+		// Make sure video doesn't go beyond screen bounds
+		function resizeVideo() {
+			const aspectRatio = video.videoWidth / video.videoHeight;
+			const windowAspectRatio = window.innerWidth / window.innerHeight;
+			
+			if (windowAspectRatio > aspectRatio) {
+				// Window is wider than video - fit to height
+				video.style.width = 'auto';
+				video.style.height = '100%';
+			} else {
+				// Window is taller than video - fit to width
+				video.style.width = '100%';
+				video.style.height = 'auto';
+			}
+		}
+		
+		// Initial resize
+		video.addEventListener('loadedmetadata', resizeVideo);
+		window.addEventListener('resize', resizeVideo);
+		
+		playBtn.addEventListener('click', () => {
+			video.play().then(() => {
+				playBtn.style.display = 'none';
+			}).catch(error => {
+				console.log('Playback failed:', error);
 			});
-		  </script>
+		});
+		</script>
 
 		<header id="fh5co-header-section" class="sticky-banner" >
 			<div class="container">
