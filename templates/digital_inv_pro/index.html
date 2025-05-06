@@ -144,7 +144,7 @@
 		<div id="fh5co-couple" class="fh5co-section-gray">
 			<div class="container">
 				<div class="row row-bottom-padded-md animate-box" style="margin-top:100px;">
-					<div class="col-md-6 col-md-offset-3 text-center">
+					<div class="col-md-12  text-center">
 						<div class="col-md-5 col-sm-5 col-xs-5 nopadding" >
 							<img src="{% static 'digital_inv_pro/images/material/groom.jpg' %}" class="img-responsive floating-image" style="height: 130px;" >
 							<h3 class="floating-text">Akshay Chandh M C</h3>
@@ -159,7 +159,7 @@
 					</div>
 				</div>
 				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-12">
 						<div class="col-md-12 text-center heading-section">
 							<h2>Are Getting Married</h2>
 							<p><strong>on May 11, 2025 &mdash; Vinakayaka Auditorium, Kulavanmukku</strong></p>
@@ -231,26 +231,69 @@
 			.heading-section h2 {
 				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 			}
-			#fh5co-countdown .countdown span,
-			#fh5co-countdown .countdown .label {
+			#fh5co-countdown .countdown {
+				display: flex;
+				justify-content: center;
+				flex-wrap: nowrap;
+			  }
+			  
+			  .countdown-unit {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0 10px;
+			  }
+			  
+			  .countdown-value {
 				font-family: "Montez", cursive;
 				font-size: 50px;
-			}
-			
+				line-height: 1;
+			  }
+			  
+			  .countdown-label {
+				font-family: "Montez", cursive;
+				font-size: 24px;
+				line-height: 1;
+			  }
+			  
+			  /* Mobile view - keep the same layout but adjust sizing */
+			  @media (max-width: 767px) {
+				.countdown-value {
+				  font-size: 30px;
+				}
+				.countdown-label {
+				  font-size: 18px;
+				}
+				.countdown-unit {
+				  margin: 0 5px;
+				}
+			  }
 		</style>
 
 		<div id="fh5co-countdown">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center animate-box">
-					<p class="countdown">
-						<span id="days"></span> <span class="label">days</span>
-						<span id="hours"></span> <span class="label">hours</span>
-						<span id="minutes"></span> <span class="label">minutes</span>
-						<span id="seconds"></span> <span class="label">seconds</span>
-					</p>
+			  <div class="col-md-12  text-center animate-box">
+				<div class="countdown">
+				  <div class="countdown-unit">
+					<span id="days" class="countdown-value"></span>
+					<span class="countdown-label">days</span>
+				  </div>
+				  <div class="countdown-unit">
+					<span id="hours" class="countdown-value"></span>
+					<span class="countdown-label">hours</span>
+				  </div>
+				  <div class="countdown-unit">
+					<span id="minutes" class="countdown-value"></span>
+					<span class="countdown-label">minutes</span>
+				  </div>
+				  <div class="countdown-unit">
+					<span id="seconds" class="countdown-value"></span>
+					<span class="countdown-label">seconds</span>
+				  </div>
 				</div>
+			  </div>
 			</div>
-		</div>
+		  </div>
 	
 		<script>
 			// Set the date we're counting down to
@@ -294,7 +337,7 @@
 		<div id="fh5co-gallery">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+					<div class="col-md-12  text-center heading-section animate-box">
 						<h2 class="floating-text" >Wedding Gallery</h2>
 					</div>
 				</div>
@@ -354,7 +397,7 @@
                 <div class="container">
                     <div class="row">
 						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box ">
+							<div class="col-md-12  text-center heading-section animate-box ">
 								<h2 class="floating-text" >Location</h2>
 							</div>
 						</div>
@@ -472,11 +515,11 @@
             <div class="single-slider slider-height2  hero-overly d-flex align-items-center" data-background="assets/img/hero/about_hero.jpg">
                 <div class="container">
                     <div class="row">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box mt-5">
+						
+							<div class="col-md-12  text-center heading-section animate-box mt-5">
 								<h2 class="floating-text" >Find Us On Map 
 							</div>
-						</div>
+						
                     </div>
                 </div>
             </div>
@@ -507,10 +550,10 @@
 						<div class="col-md-12 text-center">
 							<h2>Akshay Chandh &amp; Nisha</h2>
 						</div>
-						<div class="col-md-6 col-md-offset-3 text-center">
+						<div class="col-md-12 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
-								<a href="#"><i class="icon-phone"></i></a>
-								<a href="#"><i class="icon-whatsapp"></i></a>
+								<a href="tel:+917293429044"><i class="icon-phone"></i></a>
+								<a href="https://wa.me/917293429044" target="_blank"><i class="icon-whatsapp"></i></a>								
 							</p>
 							<p>Copyright 2025 All rigths Reserved to CodespikeStudio <a href="https://codespikestudios.in/"></a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="https://codespikestudios.in/" target="_blank">codespikestudios.in</a></p>
 						</div>
