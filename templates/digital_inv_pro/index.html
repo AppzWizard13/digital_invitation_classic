@@ -567,7 +567,7 @@
 						<div class="col-md-12 text-center">
 							<h2>Akshay Chandh &amp; Nisha</h2>
 						</div>
-						<div class="col-md-12 col-md-offset-3 text-center">
+						<div class="col-md-12  text-center">
 							<p class="fh5co-social-icons">
 								<a href="tel:+917293429044"><i class="icon-phone"></i></a>
 								<a href="https://wa.me/917293429044" target="_blank"><i class="icon-whatsapp"></i></a>								
@@ -578,9 +578,88 @@
 				</div>
 			</div>
 		</footer>
-
-	
-
+		<style>
+			/* Body styles */
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+		
+			/* Side label (fixed to the side) */
+			.contact-sidebar {
+				position: fixed;
+				top: 80%;
+				right: 0;
+				transform: translateY(-50%);
+				background-color:rgb(1 127 47);
+				color: white;
+				padding: 15px 5px;
+				border-radius: 10px 0 0 10px;
+				text-align: center;
+				box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+				z-index: 1000;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 5px;
+			}
+		
+			.contact-sidebar .studio-name {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 10px;
+			}
+		
+			.contact-sidebar .studio-name a {
+				text-decoration: none;
+				color: white;
+				font-weight: bold;
+				font-size: 12px;
+				letter-spacing: 1px;
+				line-height: 1.2;
+			}
+		
+			.contact-sidebar .icons-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 10px;
+			}
+		
+			.contact-sidebar .icon-link {
+				text-decoration: none;
+			}
+		
+			.contact-sidebar .icon {
+				width: 15px;
+				height: 15px;
+			}
+		
+			.contact-sidebar .phone-icon {
+				filter: brightness(0) invert(1);
+			}
+		</style>
+		
+		<!-- Contact Sidebar -->
+		<div class="contact-sidebar">
+			<div class="studio-name">
+				<a href="https://codespikestudios.in" target="_blank">
+					c<br>o<br>d<br>e<br>s<br>p<br>i<br>k<br>e<br>s<br>t<br>u<br>d<br>i<br>o<br>s<br>
+				</a>
+			</div>
+			
+			<div class="icons-container">
+				<a href="https://wa.me/+917736500760" target="_blank">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icon">
+				</a>
+				
+				<a href="tel:+917736500760">
+					<img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Phone" class="icon phone-icon">
+				</a>
+			</div>
+		</div>
 	</div>
 	<!-- END fh5co-page -->
 
