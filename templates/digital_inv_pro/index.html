@@ -8,11 +8,8 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Nuptial &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>Akshay Weds Nisha &mdash;Fully Responsive HTML5 Template CodespikeStudio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
 
   <!-- 
 	//////////////////////////////////////////////////////
@@ -58,6 +55,12 @@
 	
 	<link rel="stylesheet" href="{% static  'digital_inv_pro/css/style.css' %}">
 
+	<!-- In your <head> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Before closing </body> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js' %}"></script>
@@ -80,7 +83,7 @@
 							<div class="col-md-10 col-md-offset-1">
 								<div class="animate-box 3" style="text-align:start; margin-top: 60px;">
 									<h1>The Wedding</h1>
-									<h2>Akshay Chandh &amp; Nisha</h2>
+									<h2 class="floating-text">Akshay Chandh &amp; Nisha</h2>
 									<p><span>11.05.2025</span></p>
 								</div>
 							</div>
@@ -90,7 +93,36 @@
 			</div>
 		</div>
 
-		<header id="fh5co-header-section " class="sticky-banner" >
+		<div class="video-container" style="position: relative; height: 100vh; overflow: hidden;">
+			<video id="weddingVideo" class="w-100 h-100" style="object-fit: cover; filter: saturate(1.4);" playsinline>
+			  <source src="{% static 'videos/wedding_intro.mp4' %}" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  
+			<!-- Overlay Caption -->
+			<div class="carousel-caption d-none d-md-block" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff;">
+			  <h1 style="font-size: 3rem;">The Wedding</h1>
+			  <h2 class="floating-text" style="font-size: 2rem;">Akshay Chandh &amp; Nisha</h2>
+			  <p style="font-size: 1.5rem;"><span>11.05.2025</span></p>
+			</div>
+		  
+			<!-- Play Button Overlay -->
+			<button id="playBtn" style="position: absolute; top: 80%; left: 50%; transform: translateX(-50%); z-index: 10; font-size: 1.2rem; padding: 10px 20px; border: none; background-color: #fff; color: #000; border-radius: 5px; cursor: pointer;">
+			  ▶️ Play Video with Sound
+			</button>
+		  </div>
+		  
+		  <script>
+			const playBtn = document.getElementById('playBtn');
+			const video = document.getElementById('weddingVideo');
+		  
+			playBtn.addEventListener('click', () => {
+			  video.play();
+			  playBtn.style.display = 'none';
+			});
+		  </script>
+
+		<header id="fh5co-header-section" class="sticky-banner" >
 			<div class="container">
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
@@ -98,7 +130,7 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="index.html" >Home</a></li>
+							{% comment %} <li class="active"><a href="index.html" >Home</a></li> {% endcomment %}
 							{% comment %} <li><a href="when-where.html">When &amp; Where</a></li>
 							<li><a href="gallery.html">Gallery</a></li> {% endcomment %}
 						</ul>
@@ -113,15 +145,15 @@
 			<div class="container">
 				<div class="row row-bottom-padded-md animate-box" style="margin-top:100px;">
 					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-							<img src="{% static 'digital_inv_pro/images/material/groom.jpg' %}" class="img-responsive floating-image" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+						<div class="col-md-5 col-sm-5 col-xs-5 nopadding" >
+							<img src="{% static 'digital_inv_pro/images/material/groom.jpg' %}" class="img-responsive floating-image" style="height: 130px;" >
 							<h3 class="floating-text">Akshay Chandh M C</h3>
 						</div>
 						<div class="col-md-2 col-sm-2 col-xs-2 nopadding">
 							<h1 class="amp-center">Weds</h1>
 						</div>
-						<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-							<img src="{% static 'digital_inv_pro/images/material/bride.jpg' %}" class="img-responsive floating-image" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+						<div class="col-md-5 col-sm-5 col-xs-5 nopadding" >
+							<img src="{% static 'digital_inv_pro/images/material/bride.jpg' %}" class="img-responsive floating-image" style="height: 130px;" >
 							<h3 class="floating-text">Nisha A K</h3>
 						</div>
 					</div>
@@ -172,7 +204,7 @@
 				text-align: center;
 				font-size: 2em;
 				color: #e74c3c;
-				margin-left: -47px;
+				margin-left: -25px;
 				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Added shadow to "Weds" */
 			}
 		
@@ -199,16 +231,22 @@
 			.heading-section h2 {
 				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 			}
+			#fh5co-countdown .countdown span,
+			#fh5co-countdown .countdown .label {
+				font-family: "Montez", cursive;
+				font-size: 50px;
+			}
+			
 		</style>
 
 		<div id="fh5co-countdown">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center animate-box">
 					<p class="countdown">
-						<span id="days"></span> days
-						<span id="hours"></span> hours
-						<span id="minutes"></span> minutes
-						<span id="seconds"></span> seconds
+						<span id="days"></span> <span class="label">days</span>
+						<span id="hours"></span> <span class="label">hours</span>
+						<span id="minutes"></span> <span class="label">minutes</span>
+						<span id="seconds"></span> <span class="label">seconds</span>
 					</p>
 				</div>
 			</div>
@@ -257,50 +295,50 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h2>Wedding Gallery</h2>
+						<h2 class="floating-text" >Wedding Gallery</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-1.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-1.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-1.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-1.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-4.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-4.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-4.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-4.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-7.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-7.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-7.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-7.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-10.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-10.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-2.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-2.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-						</div>
-						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-5.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-5.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-						</div>
-						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-8.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-8.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-						</div>
-						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-11.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-11.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-10.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-10.jpg' %}" class="img-responsive" ></a>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-3.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-3.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-2.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-2.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-6.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-6.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-5.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-5.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-9.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-9.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-8.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-8.jpg' %}" class="img-responsive" ></a>
 						</div>
 						<div class="gallery animate-box">
-							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-12.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-12.jpg' %}" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-11.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-11.jpg' %}" class="img-responsive" ></a>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="gallery animate-box">
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-3.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-3.jpg' %}" class="img-responsive" ></a>
+						</div>
+						<div class="gallery animate-box">
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-6.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-6.jpg' %}" class="img-responsive" ></a>
+						</div>
+						<div class="gallery animate-box">
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-9.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-9.jpg' %}" class="img-responsive" ></a>
+						</div>
+						<div class="gallery animate-box">
+							<a class="gallery-img image-popup" href="{% static 'digital_inv_pro/images/material/gallery-12.jpg' %}"><img src="{% static 'digital_inv_pro/images/material/gallery-12.jpg' %}" class="img-responsive" ></a>
 						</div>
 					</div>
 				</div>
@@ -313,11 +351,11 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="single-slider slider-height2  hero-overly d-flex align-items-center" data-background="assets/img/hero/about_hero.jpg">
-                <div class="container mt-5 pt-5">
+                <div class="container">
                     <div class="row">
 						<div class="row">
-							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box mt-5">
-								<h2>Location</h2>
+							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box ">
+								<h2 class="floating-text" >Location</h2>
 							</div>
 						</div>
                     </div>
@@ -326,92 +364,117 @@
         </div>
         <!-- slider Area End-->
         <!-- Services Area Start-->
-        <div class="service-area ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="singl-services text-center mb-60 gallery animate-box">
-                            <div class="top-caption">
-                                <h1>Marriage- Venue</h1>
-                                <p style="font-size: 22px;  font-weight:bolder;">May 11, 2025</p>
-                            </div>
-                            {% comment %} <div class="services-img">
-                                <img src="assets/img/service/service1.png" alt="">
-                                <div class="back-flower">
-                                    <img src="assets/img/service/services_flower1.png" alt="">
-                                </div>
-                            </div> {% endcomment %}
-                            <div class="bottom-caption">
-                                <span class="time-badge">08:00AM - 10:00AM</span>
-
-								<style>
-									.time-badge {
-										display: inline-block;
-										font-size: 22px;
-										font-weight: bolder;
-										padding: 10px 25px;
-										border-radius: 30px;
-										background: linear-gradient(135deg, #0693ba  0%, #85f4f5  100%);
-										color: white;
-										text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-										box-shadow: 0 4px 15px rgba(55, 169, 231, 0.4);
-										position: relative;
-										overflow: hidden;
-										border: 2px solid rgba(255,255,255,0.3);
-									}
-									
-									.time-badge::after {
-										content: '';
-										position: absolute;
-										top: -50%;
-										left: -50%;
-										width: 200%;
-										height: 200%;
-										background: linear-gradient(
-											to bottom right,
-											rgba(23, 111, 49, 0.3) 0%,
-											rgba(255,255,255,0) 60%
-										);
-										transform: rotate(30deg);
-									}
-									
-									.time-badge:hover {
-										transform: translateY(-2px);
-										box-shadow: 0 6px 20px rgba(25, 183, 170, 0.6);
-									}
-								</style>
-                                <p style="font-size: 22px;">Sharadha Auditorium<br>Mankurussi, Palakkad, Kerala</p>
-                            </div>
-                        </div> 
-                    </div><div class="col-lg-6">
-                        <div class="singl-services text-center mb-60 gallery animate-box">
-                            <div class="top-caption">
-                                <h1>The Dinner</h1>
-                                <p style="font-size: 22px;  font-weight:bolder;">May 11, 2025</p>
-                            </div>
-                            {% comment %} <div class="services-img">
-                                <img src="assets/img/service/service2.png" alt="">
-                                <div class="back-flower">
-                                    <img src="assets/img/service/services_flower1.png" alt="">
-                                </div>
-                            </div> {% endcomment %}
-                            <div class="bottom-caption">
-                                <span  class="time-badge" style="font-size: 22px; font-weight:bolder;" >05:00PM-08:00PM</span>
-                                <p style="font-size: 22px;">Vinayaka Auditorium<br> Kulavanmukku, Kuzhalmannam, Kerala</p>
-                            </div>
-                        </div> 
-                </div>
-             </div>
-        </div>
+		<style>
+			body {
+				font-family: 'Montez', cursive;
+				background-color: #fdfdfd;
+			}
+		
+			.singl-services {
+				background: #fff;
+				padding: 40px 30px;
+				margin-bottom: 40px;
+				border-radius: 35px;
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+			}
+		
+			.singl-services:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+		
+			.singl-services h1 {
+				font-size: 3rem;
+				color: #004d40;
+				margin-bottom: 10px;
+			}
+		
+			.singl-services p {
+				font-size: 1.6rem;
+				color: #333;
+				margin-bottom: 15px;
+			}
+		
+			.time-badge {
+				display: inline-block;
+				font-size: 1.5rem;
+				font-weight: bold;
+				padding: 10px 30px;
+				border-radius: 30px;
+				background: linear-gradient(135deg, #00b4db 0%, #00ff94 100%);
+				color: white;
+				text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+				box-shadow: 0 4px 15px rgba(0, 192, 155, 0.4);
+				position: relative;
+				overflow: hidden;
+				border: 2px solid rgba(255,255,255,0.3);
+				margin-bottom: 15px;
+			}
+		
+			.time-badge::after {
+				content: '';
+				position: absolute;
+				top: -50%;
+				left: -50%;
+				width: 200%;
+				height: 200%;
+				background: linear-gradient(
+					to bottom right,
+					rgba(0, 255, 203, 0.2) 0%,
+					rgba(255, 255, 255, 0) 70%
+				);
+				transform: rotate(30deg);
+			}
+		
+			.time-badge:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 6px 20px rgba(0, 192, 155, 0.6);
+			}
+		</style>
+		
+		<div class="service-area">
+			<div class="container">
+				<div class="row">
+					<!-- Marriage Venue Card -->
+					<div class="col-lg-6">
+						<div class="singl-services text-center gallery animate-box">
+							<div class="top-caption">
+								<h1>Marriage - Venue</h1>
+								<p>May 11, 2025</p>
+							</div>
+							<div class="bottom-caption">
+								<span class="time-badge">08:00 AM - 10:00 AM</span>
+								<p>Sharadha Auditorium<br>Mankurussi, Palakkad, Kerala</p>
+							</div>
+						</div>
+					</div>
+		
+					<!-- Dinner Card -->
+					<div class="col-lg-6">
+						<div class="singl-services text-center gallery animate-box">
+							<div class="top-caption">
+								<h1>The Dinner</h1>
+								<p>May 11, 2025</p>
+							</div>
+							<div class="bottom-caption">
+								<span class="time-badge">05:00 PM - 08:00 PM</span>
+								<p>Vinayaka Auditorium<br>Kulavanmukku, Kuzhalmannam, Kerala</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         <!-- Services Area End-->
         <!-- ================ Map ================= -->
 		<section class="ftco-map ftco-no-pb">
             <div class="single-slider slider-height2  hero-overly d-flex align-items-center" data-background="assets/img/hero/about_hero.jpg">
-                <div class="container mt-5 pt-5">
+                <div class="container">
                     <div class="row">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box mt-5">
-								<h2>Find Us On Map 
+								<h2 class="floating-text" >Find Us On Map 
 							</div>
 						</div>
                     </div>
@@ -446,13 +509,10 @@
 						</div>
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
-								<a href="#"><i class="icon-twitter2"></i></a>
-								<a href="#"><i class="icon-facebook2"></i></a>
-								<a href="#"><i class="icon-instagram"></i></a>
-								<a href="#"><i class="icon-dribbble2"></i></a>
-								<a href="#"><i class="icon-youtube"></i></a>
+								<a href="#"><i class="icon-phone"></i></a>
+								<a href="#"><i class="icon-whatsapp"></i></a>
 							</p>
-							<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+							<p>Copyright 2025 All rigths Reserved to CodespikeStudio <a href="https://codespikestudios.in/"></a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="https://codespikestudios.in/" target="_blank">codespikestudios.in</a></p>
 						</div>
 					</div>
 				</div>
