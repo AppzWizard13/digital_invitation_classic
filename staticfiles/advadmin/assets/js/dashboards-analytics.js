@@ -417,10 +417,10 @@
     }
 
     // Order Statistics Chart
-    // Order Statistics Chart
     // --------------------------------------------------------------------
     console.log(' orderStatsData.labels orderStatsData.labels', orderStatsData.series)
     const chartOrderStatistics = document.querySelector('#orderStatisticsChart'),
+
         orderChartConfig = {
             chart: {
                 height: 165,
@@ -428,16 +428,9 @@
                 type: 'donut'
             },
 
-            labels: orderStatsData.labels, // <- dynamically set from template
-            series: orderStatsData.series, // <- dynamically set from template
-            colors: [
-                config.colors.primary,
-                config.colors.secondary,
-                config.colors.info,
-                config.colors.success,
-                config.colors.warning,
-                config.colors.danger
-            ],
+            labels: orderStatsData.labels,
+            series: orderStatsData.series,
+            colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
             stroke: {
                 width: 5,
                 colors: cardColor
@@ -481,10 +474,9 @@
                                 show: true,
                                 fontSize: '0.8125rem',
                                 color: axisColor,
-                                label: 'Orders',
+                                label: 'Weekly',
                                 formatter: function(w) {
-                                    const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                    return total + ' Orders';
+                                    return '38%';
                                 }
                             }
                         }
@@ -492,12 +484,10 @@
                 }
             }
         };
-
     if (typeof chartOrderStatistics !== undefined && chartOrderStatistics !== null) {
         const statisticsChart = new ApexCharts(chartOrderStatistics, orderChartConfig);
         statisticsChart.render();
     }
-
 
     // Income Chart - Area chart
     // --------------------------------------------------------------------
